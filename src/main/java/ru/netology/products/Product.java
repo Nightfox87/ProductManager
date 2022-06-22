@@ -15,6 +15,4 @@ public class Product {
     protected int price;
 
 
-
-
 }
