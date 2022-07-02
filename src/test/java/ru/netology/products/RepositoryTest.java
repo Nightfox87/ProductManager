@@ -43,4 +43,18 @@ public class RepositoryTest {
 
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void shouldThrowException() {
+        ProductRepository repo = new ProductRepository();
+        repo.save(book1);
+        repo.save(phone1);
+        repo.save(book2);
+        repo.save(phone2);
+        repo.save(book3);
+
+        assertThrows(NotFoundException.class, () -> {
+            repo.removeById(100);
+        });
+    }
 }
